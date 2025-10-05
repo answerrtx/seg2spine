@@ -1,7 +1,10 @@
 # seg2spine
 Implementation of **Validity of a fast automated 3d spine reconstruction measurements for biplanar radiographs** https://pubmed.ncbi.nlm.nih.gov/38926172/.
 
-**Currently, I am the sole PhD student in our group, and due to limited development resources, my primary focus is on completing my graduate thesis first. As a result, code tidying and open-sourcing are scheduled for release by September 2025.** Star the repository to receive timely updates
+Hugging Face Demo is under construction
+https://huggingface.co/spaces/h2c2o4/seg2spine
+
+**Currently, I am the sole PhD student in our group, and due to limited development resources, my primary focus is on completing my graduate thesis first. Demo is scheduled for release by mid Oct 2025.** Star the repository to receive timely updates
 
 Preview:
 Segmentation
