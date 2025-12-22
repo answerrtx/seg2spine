@@ -39,7 +39,7 @@ def gen_17x9_txt_driven(
     fit_uniform: bool = False,
 ) -> List[List[float]]:
     """
-    输出每个椎体 9 个数：
+    
     [sx, sy, sz, ang1, ang2, ang3, tx, ty, tz]
 
     sx/sy/sz：把 template 的 bbox (templ_w/h/d) 形变到 txt 的目标宽高厚（归一化单位）
@@ -58,7 +58,6 @@ def gen_17x9_txt_driven(
     if scale == 0:
         raise ValueError("pa[8].height == 0, cannot normalize")
 
-    # 方向纠正逻辑（沿用你之前的思路）
     convertt = (lat[8].cent_x > lat[15].cent_x)
 
     rows: List[List[float]] = []
@@ -81,7 +80,7 @@ def gen_17x9_txt_driven(
         sy = target_h / templ_h * 0.95
         sz = target_d / templ_d
 
-        # --- rotations（按你原映射）---
+        # --- rotations---
         ang1 = lat[i].ang
         if convertt:
             ang1 = -ang1
