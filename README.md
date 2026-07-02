@@ -2,6 +2,8 @@
 
 Implementation of **Validity of a fast automated 3d spine reconstruction measurements for biplanar radiographs** https://pubmed.ncbi.nlm.nih.gov/38926172/.
 
+Purpose: Given a relatively good segmentation of biplanar radiographs, this study investigates whether applying a fast registration method preserves the accuracy and reliability for 3D visualization.
+
 Pipeline: Segmentation x 3 -> Extract the 3D information -> Visualization & Measurement
 Because of limited manpower (:<), the open-sourcing of the remaining parts will have to wait until I have time to clean everything up.
 
