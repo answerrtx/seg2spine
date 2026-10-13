@@ -1,17 +1,14 @@
 # Seg2spine (Under Construction)
 
-Implementation of **Validity of a fast automated 3d spine reconstruction measurements for biplanar radiographs** https://pubmed.ncbi.nlm.nih.gov/38926172/.
+Implementation of [Validity of a fast automated 3d spine reconstruction measurements for biplanar radiographs](https://pubmed.ncbi.nlm.nih.gov/38926172/).
 
-Purpose: Given a relatively good segmentation of biplanar radiographs, this study investigates whether applying a fast registration method preserves the accuracy and reliability for 3D visualization.
+**Purpose**: Given a relatively good segmentation of biplanar radiographs, this study investigates whether applying a fast registration method preserves the accuracy and reliability for 3D visualization.
 
 Pipeline: Segmentation x 3 -> Extract the 3D information -> Visualization & Measurement
-Because of limited manpower (:<), the open-sourcing of the remaining parts will have to wait until I have time to clean everything up.
 
 ### Hugging Face Demo for Visualization: [DEMO](https://huggingface.co/spaces/answerrtx/SpineVis)
 
-#### How to use
-
-- Generate 3D Transforms (17×9)
+1. Generate 3D Transforms (17×9)
 
 After obtaining pa.txt and lat.txt after the segmentation, run:
 ```
@@ -29,24 +26,23 @@ python3 tools/transform_full.py \
 ```
 This generates transforms.txt with 17 lines, each containing 9 numbers: sx sy sz ang1 ang2 ang3 tx ty tz
 
-Meaning:
 sx sy sz: scale factors that deform the template bbox (templ_w, templ_h, templ_d) to match the predicted bbox size (normalized)
 ang1 ang2 ang3: rotations in degrees
 tx ty tz: translations in the same normalized units
 
 
-- Paste into the Demo UI
+2. Paste into the Demo UI
 
 Open transforms.txt. Copy all numbers (newlines are OK). Paste into the demo field Transformation. The demo accepts 153 numbers (= 17×9) separated by spaces/commas/newlines. 
 
 ### Segmentation 
-
+We DO NOT provide the trained model for segmentation at the current stage. These information can be obtained from any adapted models, e.g., yolo-v8, faster-rcnn, SAM2, and so on.
 Three segmentations should be applied to create the 3d modeling:
 1. vertebrae segmentation on PA view
 2. pedicle segmentation on PA view
 3. vertebrae segmentation on LAT view
 
-### 3D Info Extraction
+- 3D Info Extraction
 From the binary masks, generate 3 txt files. 
 
 The result for PA and LAT vertebrae must be a **17-line** text file (one vertebra per line, ordered **T1..T17**).
@@ -72,7 +68,7 @@ Each line contains **1 integer and 4 floats**:
 The vertebral rotation should be calculated combining the PA and LAT results.
 
 
-### Preview of the software
+### Preview of the entire pipeline in the in-house software
 Segmentation and Measurement
 ![image](https://github.com/user-attachments/assets/b28da424-2738-4d8d-b127-3ebdbe37d01f)
 
